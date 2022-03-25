@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.haz.mybatis.mapper.UserMapper">
+    <!-- int insertUser(User user);-->
+    <insert id="insertUser" parameterType="User">
+ insert into t_user value (null,#{username},#{password},#{age},#{sex},#{email})
+ </insert>
+    <!--int updateUser();-->
+    <update id="updateUser" parameterType="User">
+        update t_user set username=#{username} where id=#{id}
+    </update>
+    <!-- void deleteUser(Integer id);-->
+    <delete id="deleteUser" parameterType="int">
+        delete from t_user where id=#{id}
+    </delete>
+    <!--User getUserById(Integer id);-->
+    <select id="getUserById" parameterType="int" resultType="User">
+        select * from t_user where id=#{id}
+    </select>
+    <!--List<User> getAllUser();-->
+    <select id="getAllUser" resultType="User">
+        select * from t_user
+    </select>
+
+</mapper>
