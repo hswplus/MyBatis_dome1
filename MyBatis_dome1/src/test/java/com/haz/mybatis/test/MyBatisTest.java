@@ -59,7 +59,7 @@ public class MyBatisTest {
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
         //创建SqlSession对象，此时通过SqlSession对象所操作的sql都会自动提交
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
-        //通过代理模式创建UserMapper接口的代理实现类对象
+        //通过代理模式创建UserMapper接口的代理实现类对象?
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
         int result = mapper.updateUser(user);
         System.out.println("result:"+result);
